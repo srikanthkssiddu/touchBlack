@@ -12,9 +12,9 @@ Responsive Design: Fully responsive layout that adapts to different screen sizes
 
 Technologies Used:
 
-React Native, javscript (for mobile and web development)
-Async and session storage (for login sessions and data management)
-React context (for state management)
+React Native, javscript (for mobile and web development), 
+Async and session storage (for login sessions and data management), 
+React context (for state management), 
 StyleSheet (for styling and layout)
 
 Demo video : https://drive.google.com/file/d/1H_hmOp-2wfW5G97Jewj68-FWdObUTeOy/view?usp=drivesdk
