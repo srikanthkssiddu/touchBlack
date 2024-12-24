@@ -304,7 +304,10 @@ const TodoList = () => {
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Sort Tasks By</Text>
             <TouchableOpacity
-              style={styles.modalButton}
+              style={[
+                styles.modalButton,
+                sortBy === "date" && styles.selectedButton,
+              ]}
               onPress={() => {
                 setSortBy("date");
                 setSortOrder("asc");
@@ -314,7 +317,10 @@ const TodoList = () => {
               <Text style={styles.modalButtonText}>Creation Date</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.modalButton}
+              style={[
+                styles.modalButton,
+                sortBy === "title" && styles.selectedButton,
+              ]}
               onPress={() => {
                 setSortBy("title");
                 toggleSortModal();
@@ -342,7 +348,10 @@ const TodoList = () => {
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Filter Tasks By</Text>
             <TouchableOpacity
-              style={styles.modalButton}
+              style={[
+                styles.modalButton,
+                filterStatus === "all" && styles.selectedButton,
+              ]}
               onPress={() => {
                 setFilterStatus("all");
                 toggleFilterModal();
@@ -351,7 +360,10 @@ const TodoList = () => {
               <Text style={styles.modalButtonText}>All</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.modalButton}
+              style={[
+                styles.modalButton,
+                filterStatus === "pending" && styles.selectedButton,
+              ]}
               onPress={() => {
                 setFilterStatus("pending");
                 toggleFilterModal();
@@ -360,7 +372,10 @@ const TodoList = () => {
               <Text style={styles.modalButtonText}>Pending</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.modalButton}
+              style={[
+                styles.modalButton,
+                filterStatus === "completed" && styles.selectedButton,
+              ]}
               onPress={() => {
                 setFilterStatus("completed");
                 toggleFilterModal();
@@ -457,6 +472,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     paddingHorizontal: isWeb ? 125 : 20,
     paddingVertical: isWeb ? 50 : 0,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyText: {
+    color: "#fff",
+    fontSize: 17,
+    fontWeight: "600",
+    textAlign: "center",
+    paddingHorizontal: 10,
   },
   layout: {
     flex: 1,
@@ -714,7 +741,6 @@ const styles = StyleSheet.create({
     zIndex: 1000,
     bottom: 150,
     right: 20,
-    borderWidth: 5,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
@@ -737,6 +763,10 @@ const styles = StyleSheet.create({
     marginVertical: 2,
     width: "100%",
     alignItems: "center",
+  },
+  selectedButton: {
+    borderWidth: 1,
+    borderColor: "000",
   },
   modalButtonText: {
     color: "#333",

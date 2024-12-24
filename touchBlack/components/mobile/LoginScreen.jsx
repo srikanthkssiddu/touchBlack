@@ -30,12 +30,11 @@ const LoginScreen = () => {
         sessionStorage.setItem("phoneNumber", phoneNumber);
         sessionStorage.setItem("password", password);
       }
-      console.log(phoneNumber, password);
+
       await saveData("phoneNumber", phoneNumber);
       await saveData("password", password);
       navigation.replace("Home");
     } catch (error) {
-      console.log("Error saving data", error);
       Alert.alert("Error saving data");
     }
   };
@@ -44,33 +43,31 @@ const LoginScreen = () => {
     <View style={styles.container}>
       <StatusBar animated={true} />
       <View style={styles.innerContainer}>
+        <View style={styles.title}>
+          <Text style={styles.touchText}>Touch</Text>
+          <Text style={styles.blackText}>Black</Text>
+        </View>
 
-      
-      <View style={styles.title}>
-        <Text style={styles.touchText}>Touch</Text>
-        <Text style={styles.blackText}>Black</Text>
-      </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          placeholderTextColor="#888"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+          keyboardType="phone-pad"
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        placeholderTextColor="#888"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-        keyboardType="phone-pad"
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#888"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="#888"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -85,19 +82,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     paddingHorizontal: 20,
   },
-  innerContainer:{
-    width: '100%',
+  innerContainer: {
+    width: "100%",
     maxWidth: 400,
     padding: 20,
-   borderWidth:2,
-    borderColor:"#fff",
-    shadowColor: '#000',
+    borderWidth: 2,
+    borderColor: "#fff",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 5,
-    boxShadow: Platform.OS === 'web' ? '0px 5px 15px rgba(0, 0, 0, 0.2)' : undefined,
-    alignItems: 'center',
+    boxShadow:
+      Platform.OS === "web" ? "0px 5px 15px rgba(0, 0, 0, 0.2)" : undefined,
+    alignItems: "center",
   },
   title: {
     justifyContent: "center",

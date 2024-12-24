@@ -7,30 +7,7 @@ export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([
-    {
-      id: "1",
-      title: "Learn React",
-      description: "Study React fundamentals and hooks.",
-      completed: false,
-      dueDate: "2024-12-25",
-      date: "24/12/2024",
-    },
-    {
-      id: "2",
-      title: "Build a project",
-      description: "Create a To-Do list app using React Native.",
-      completed: true,
-      dueDate: "2024-12-20",
-      date: "25/12/2024",
-    },
-    {
-      id: "3",
-      title: "Optimize performance",
-      description: "Improve performance of the To-Do list app.",
-      completed: false,
-      dueDate: "2024-12-30",
-      date: "26/12/2024",
-    },
+  
   ]);
 
   const validateTodo = (title, description) => {
